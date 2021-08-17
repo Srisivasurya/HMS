@@ -24,6 +24,10 @@ public class VisitInformation {
             throw new Exception("Medicine is null");
         }
 
+        if(appointmentMap.isEmpty()){
+            throw new Exception("Appointment is Empty");
+        }
+
         if (followUpNeeded == null) {
             throw new Exception("FollowUpNedded is empty");
         }
@@ -31,6 +35,13 @@ public class VisitInformation {
         if (visitingMap.isEmpty()) {
             throw new Exception("Visiting Map is empty ");
         }
+
+        Appointment appointment = new Appointment();
+        if (appointmentMap.containsKey(appointmentID)) {
+            appointment = appointmentMap.get(appointmentID);
+        }
+
+        Patient patient = appointment.getPatientID();
 
         Visiting visit = new Visiting();
 

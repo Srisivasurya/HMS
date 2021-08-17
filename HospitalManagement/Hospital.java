@@ -7,12 +7,12 @@ public class Hospital {
     private String hospitalName;
     private String hospitalLocation;
 
-    public Long getHospitalID(){
+    public Long getHospitalId(){
 
         return hospitalId;
     }
 
-    public void setHospitalID( Long hospitalID ){
+    public void setHospitalId( Long hospitalID ){
 
         this.hospitalId = hospitalId;
     }

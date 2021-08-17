@@ -29,7 +29,7 @@ class InPatient {
         this.bed = bed;
     }
 
-    @Override
+
     public String toString() {
         return "InPatient{" + "patientId=" + patientID + ", ipIdentificationNumber=" + ipIdentificationNumber + ", bed=" + bed + '}';
     }

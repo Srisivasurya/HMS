@@ -1,14 +1,12 @@
 package HospitalManagement;
 
-import java.util.Date;
-
 public class Patient {
     private String patientName;
-    private long patientID;
-    private String patientDOB;
+    private long patientId;
+    private int patientDOB;
     private String phoneNumber;
     private String address;
-    private String typeIpOp;
+    private String type;
 
     public String getPatientName() {
         return patientName;
@@ -18,20 +16,20 @@ public class Patient {
         this.patientName = patientName;
     }
 
-    public long getPatientID() {
-        return patientID;
+    public long getPatientId() {
+        return patientId;
     }
 
-    public void setPatientID(long patientID) {
-        this.patientID = patientID;
+    public void setPatientId(long patientID) {
+        this.patientId = patientId;
     }
 
-    public String getPatientDOB() {
+    public int getPatientDOB() {
         return patientDOB;
     }
 
-    public void setPatientDOB(Date patientDOB) {
-        this.patientDOB = String.valueOf(patientDOB);
+    public void setPatientDOB(int patientDOB) {
+        this.patientDOB = patientDOB;
     }
 
     public String getPhoneNumber() {
@@ -50,16 +48,16 @@ public class Patient {
         this.address = address;
     }
 
-    public String getTypeIpOp() {
-        return typeIpOp;
+    public String getType() {
+        return type;
     }
 
-    public void setTypeIpOp(String typeIpOp) {
-        this.typeIpOp = typeIpOp;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String toString() {
-        return "Patient{" + "patientId=" + patientID + ", patientName='" + patientName + '\'' + ", dob=" + patientDOB + ", phoneNumber='" + phoneNumber + '\'' + ", address='" + address + '\'' + ", patientType='" + typeIpOp + '\'' + '}';
+        return "Patient{" + "patientId=" + patientId + ", patientName='" + patientName + '\'' + ", dob=" + patientDOB + ", phoneNumber='" + phoneNumber + '\'' + ", address='" + address + '\'' + ", patientType='" + type + '\'' + '}';
     }
 
 }

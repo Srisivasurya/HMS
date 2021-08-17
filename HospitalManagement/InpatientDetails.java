@@ -4,18 +4,18 @@ import java.util.Map;
 
 class InPatientDetails {
 
-    public void allocateBedForINPatient(Long patientId, Map<Long, InPatient> inPatientDetails,
-                                        Map<Long, Bed> bedDetails, String bedType, String roomName) throws Exception {
+    public void allocateBedForINPatient(Long patientID, Map<Long, InPatient> inPatientMap,
+                                        Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
 
         System.out.println("hi");
 
-        if (patientId == null) {
+        if (patientID == null) {
             throw new Exception("InValid InPatient Id : ");
         }
-        if (inPatientDetails.isEmpty()) {
+        if (inPatientMap.isEmpty()) {
             throw new Exception("InPatient Details is Empty : ");
         }
-        if (bedDetails.isEmpty()) {
+        if (bedMap.isEmpty()) {
             throw new Exception("BedDetails Is Empty : ");
         }
 
@@ -27,8 +27,8 @@ class InPatientDetails {
         }
 
         InPatient inPatient = null;
-        if (inPatientDetails.containsKey(patientId)) {
-            inPatient = inPatientDetails.get(patientId);
+        if (inPatientMap.containsKey(patientID)) {
+            inPatient = inPatientMap.get(patientID);
             System.out.println(inPatient);
         }
     }

@@ -9,20 +9,10 @@ import java.util.Random;
 
 public class ObjectMethod {
     private static Map <Long,Hospital> hospitalMap;
-    private static Hospital hospital;
 
     private static Map<Long,Doctor> doctorMap;
-    private static Doctor doctorSurya;
-    private static Doctor doctorRamesh;
-    private static Doctor doctorGuru;
-    private static Doctor doctorDeepa;
 
     private static Map<Long,Patient> patientMap;
-    private static Patient patientSivahari;
-    private static Patient patientChandhra;
-    private static Patient patientLaxmi;
-    private static Patient patientBadsha;
-    private static Patient patientMuthu;
 
     private static Map <Long,Medicine> medicineMap;
     private static Medicine medicine;
@@ -38,43 +28,35 @@ public class ObjectMethod {
     private static Appointment appointmentThree;
     private static Appointment appointmentFour;
 
+    static private Map<Long, InPatient> inPatientMap;
+
     private static Map<Long,Visiting> visitingMap;
     private static Visiting visitingOne;
     private static Visiting visitingTwo;
     private static Visiting visitingThree;
     private static Visiting visitingFour;
 
+    static private Map<Long, Bed> bedMap;
+    static private Bed bedOne;
+    static private Bed bedTwo;
+    static private Bed bedThree;
+    static private Bed bedFour;
+    static private Bed bedFive;
+
 
     static {
 
         hospitalMap = new HashMap<>();
-        Hospital hospital = new Hospital();
-        hospital.setHospitalName("Frontline Hospital");
-        hospital.setHospitalID(0001l);
-        hospital.setHospitalLocation("Chennai");
-        hospitalMap.put(hospital.getHospitalID(), hospital);
+        Hospital hospital = getHospital(1011l,"Frontline Hospital","Chennai");
+
+        hospitalMap.put(hospital.getHospitalId(), hospital);
 
 
         doctorMap = new HashMap<>();
-        doctorSurya = new Doctor();
-        doctorSurya.setDoctorName("Dr. SivaSurya");
-        doctorSurya.setDoctorID(0001l);
-        doctorSurya.setSpecialisation("Cardialogy");
-
-        doctorRamesh = new Doctor();
-        doctorRamesh.setDoctorName("Dr. RameshNatarajan");
-        doctorRamesh.setDoctorID(0002l);
-        doctorRamesh.setSpecialisation("Orthopedics");
-
-        doctorGuru = new Doctor();
-        doctorGuru.setDoctorName("Dr. Gurunathan");
-        doctorGuru.setDoctorID(0003l);
-        doctorGuru.setSpecialisation("Dermatalogist");
-
-        doctorDeepa = new Doctor();
-        doctorDeepa.setDoctorName("Dr. Deepa");
-        doctorDeepa.setDoctorID(0004l);
-        doctorDeepa.setSpecialisation("Otolaryngologist.");
+        Doctor doctorSurya = getDoctor(0001l,"Dr.SivaSurya","Cardialogy");
+        Doctor doctorRamesh = getDoctor(0002l,"Dr. RameshNatarajan","Orthopedics");
+        Doctor doctorGuru = getDoctor(0003l,"Dr. Gurunathan","Dermatalogist");
+        Doctor doctorDeepa = getDoctor(0004l,"Dr. Deepa","Otolaryngologist");
 
         doctorMap.put(doctorSurya.getDoctorID(), doctorSurya);
         doctorMap.put(doctorRamesh.getDoctorID(), doctorRamesh);
@@ -82,39 +64,15 @@ public class ObjectMethod {
         doctorMap.put(doctorDeepa.getDoctorID(), doctorDeepa);
 
         patientMap = new HashMap<>();
-        patientSivahari = new Patient();
-        patientSivahari.setPatientName("Sivahari");
-        patientSivahari.setPatientID(101l);
-        patientSivahari.setPatientDOB(new Date(2001,12,11));
-        patientSivahari.setPhoneNumber("9452154268");
-        patientSivahari.setTypeIpOp("OutPatient");
+        Patient patientSivahari = getPatient(101l,"Sivahari",12/11/2001,"9452154268","Outpatient");
+        Patient patientChandhra = getPatient(102l,"Chandhra",01/02/1999,"7397511890","Outpatient");
+        Patient patientLaxmi = getPatient(103l,"Laxmi",10/11/1997,"7505545896","Outpatient");
+        Patient patientBadsha = getPatient(104l,"Badsha",20/01/2002,"8524596210","Outpatient");
 
-        patientChandhra = new Patient();
-        patientChandhra.setPatientName("Chandhra");
-        patientChandhra.setPatientID(102l);
-        patientChandhra.setPatientDOB(new Date(1999,02,01));
-        patientChandhra.setPhoneNumber("7397511890");
-        patientChandhra.setTypeIpOp("OutPatient");
-
-        patientLaxmi = new Patient();
-        patientLaxmi.setPatientName("Laxmi");
-        patientLaxmi.setPatientID(103l);
-        patientLaxmi.setPatientDOB(new Date(1997,11,10));
-        patientLaxmi.setPhoneNumber("7505545896");
-        patientLaxmi.setTypeIpOp("OutPatient");
-
-        patientBadsha = new Patient();
-        patientBadsha.setPatientName("Badsha");
-        patientBadsha.setPatientID(104l);
-        patientBadsha.setPatientDOB(new Date(2002,01,20));
-        patientBadsha.setPhoneNumber("8524596210");
-        patientBadsha.setTypeIpOp("OutPatient");
-
-
-        patientMap.put(patientSivahari.getPatientID(), patientSivahari);
-        patientMap.put(patientChandhra.getPatientID(), patientChandhra);
-        patientMap.put(patientLaxmi.getPatientID(), patientLaxmi);
-        patientMap.put(patientBadsha.getPatientID(), patientBadsha);
+        patientMap.put(patientSivahari.getPatientId(), patientSivahari);
+        patientMap.put(patientChandhra.getPatientId(), patientChandhra);
+        patientMap.put(patientLaxmi.getPatientId(), patientLaxmi);
+        patientMap.put(patientBadsha.getPatientId(), patientBadsha);
 
         medicineMap = new HashMap<>();
         medicineMonopril = new Medicine();
@@ -151,10 +109,6 @@ public class ObjectMethod {
         medicineMap.put(medicineAvelumab.getMedicineId(), medicineAvelumab);
         medicineMap.put(medicineNystan.getMedicineId(), medicineNystan);
 
-        medicineMap.put(medicineMonopril.getBatchNumber(), medicineMonopril);
-        medicineMap.put(medicineVecuronium.getBatchNumber(), medicineVecuronium);
-        medicineMap.put(medicineAvelumab.getBatchNumber(), medicineAvelumab);
-        medicineMap.put(medicineNystan.getBatchNumber(), medicineNystan);
 
         appointmentMap= new HashMap<>();
         appointmentOne = new Appointment();
@@ -202,7 +156,37 @@ public class ObjectMethod {
         appointmentMap.put(appointmentThree.getAppointmentID(), appointmentThree);
         appointmentMap.put(appointmentFour.getAppointmentID(), appointmentFour);
 
+        bedMap = new HashMap<>();
+        bedOne = new Bed();
+        bedOne.setBedID(01l);
+        bedOne.setBedType("Normal Bed");
+        bedOne.setRoomName("01");
 
+        bedTwo = new Bed();
+        bedTwo.setBedID(02l);
+        bedTwo.setBedType("Normal Bed");
+        bedTwo.setRoomName("02");
+
+        bedThree = new Bed();
+        bedThree.setBedID(03l);
+        bedThree.setBedType("Normal Bed");
+        bedThree.setRoomName("01");
+
+        bedFour = new Bed();
+        bedFour.setBedID(04l);
+        bedFour.setBedType("Normal Bed");
+        bedFour.setRoomName("04");
+
+        bedFive = new Bed();
+        bedFive.setBedID(05l);
+        bedFive.setBedType("Normal Bed");
+        bedFive.setRoomName("05");
+
+        bedMap.put(bedOne.getBedID(), bedOne);
+        bedMap.put(bedTwo.getBedID(), bedTwo);
+        bedMap.put(bedThree.getBedID(), bedThree);
+        bedMap.put(bedFour.getBedID(), bedFour);
+        bedMap.put(bedFive.getBedID(), bedFive);
 
     }
 
@@ -259,14 +243,38 @@ public class ObjectMethod {
 
         populateVisitInformation();
 
-        CreateAppointment ca = new CreateAppointment();
 
-        Appointment appointment = ca.createAppointment(101L,patientMap,001L,doctorMap,
-                " Chest Pain ",appointmentMap);
-
-
-        System.out.println(appointment);
 
     }
+    /**
+     * @param doctorId
+     * @param doctorName
+     * @param specialisation
+     * @return
+     */
+   private static Doctor getDoctor(Long doctorId,String doctorName,String specialisation){
+       Doctor doctor = new Doctor();
+       doctor.setDoctorName(doctorName);
+       doctor.setDoctorID(doctorId);
+       doctor.setSpecialisation(specialisation);
+       return doctor;
+   }
 
+    private static Hospital getHospital(Long hospitalId,String hospitalName,String hospitalLocation){
+        Hospital hospital = new Hospital();
+        hospital.setHospitalName(hospitalName);
+        hospital.setHospitalId(hospitalId);
+        hospital.setHospitalLocation(hospitalLocation);
+        return hospital;
+    }
+
+    private static Patient getPatient(Long patientId, String patientName, int patientDOB, String phoneNumber, String type){
+        Patient patient = new Patient();
+        patient.setPatientName(patientName);
+        patient.setPatientId(patientId);
+        patient.setPatientDOB(patientDOB);
+        patient.setPhoneNumber(phoneNumber);
+        patient.setType(phoneNumber);
+        return patient;
+    }
 }
