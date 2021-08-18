@@ -23,36 +23,23 @@ public class ObjectMethod {
     private static Medicine medicineNystan;
 
     private static Map <Long,Appointment> appointmentMap;
-    private static Appointment appointmentOne;
-    private static Appointment appointmentTwo;
-    private static Appointment appointmentThree;
-    private static Appointment appointmentFour;
 
     static private Map<Long, InPatient> inPatientMap;
 
-    private static Map<Long,Visiting> visitingMap;
-    private static Visiting visitingOne;
-    private static Visiting visitingTwo;
-    private static Visiting visitingThree;
-    private static Visiting visitingFour;
+    private static Map<Long,Visiting> visitingMap;;
 
     static private Map<Long, Bed> bedMap;
-    static private Bed bedOne;
-    static private Bed bedTwo;
-    static private Bed bedThree;
-    static private Bed bedFour;
-    static private Bed bedFive;
-
 
     static {
 
         hospitalMap = new HashMap<>();
+
         Hospital hospital = getHospital(1011l,"Frontline Hospital","Chennai");
 
         hospitalMap.put(hospital.getHospitalId(), hospital);
 
-
         doctorMap = new HashMap<>();
+
         Doctor doctorSurya = getDoctor(0001l,"Dr.SivaSurya","Cardialogy");
         Doctor doctorRamesh = getDoctor(0002l,"Dr. RameshNatarajan","Orthopedics");
         Doctor doctorGuru = getDoctor(0003l,"Dr. Gurunathan","Dermatalogist");
@@ -64,6 +51,7 @@ public class ObjectMethod {
         doctorMap.put(doctorDeepa.getDoctorID(), doctorDeepa);
 
         patientMap = new HashMap<>();
+
         Patient patientSivahari = getPatient(101l,"Sivahari",12/11/2001,"9452154268","Outpatient");
         Patient patientChandhra = getPatient(102l,"Chandhra",01/02/1999,"7397511890","Outpatient");
         Patient patientLaxmi = getPatient(103l,"Laxmi",10/11/1997,"7505545896","Outpatient");
@@ -111,82 +99,30 @@ public class ObjectMethod {
 
 
         appointmentMap= new HashMap<>();
-        appointmentOne = new Appointment();
-        appointmentOne.setAppointmentID(1L);
-        appointmentOne.setPatientID(patientMap.get(101L));
-        appointmentOne.setDoctorID(doctorMap.get(001L));
-        appointmentOne.setDateofVisit(new Date(2021,04,05));
-        appointmentOne.setPurposeofVisit("For Heart weakening");
-        appointmentOne.setBP(95.5F);
-        appointmentOne.setTemperature(80F);
-        appointmentOne.setIsFirstVisit(false);
 
-        appointmentTwo = new Appointment();
-        appointmentTwo.setAppointmentID(2L);
-        appointmentTwo.setPatientID(patientMap.get(102L));
-        appointmentTwo.setDoctorID(doctorMap.get(002L));
-        appointmentTwo.setDateofVisit(new Date(2021,04,10));
-        appointmentTwo.setPurposeofVisit("For Bone Fracture");
-        appointmentTwo.setBP(94.5F);
-        appointmentTwo.setTemperature(81F);
-        appointmentTwo.setIsFirstVisit(false);
+        Appointment appointmentOne = getAppointment("04/04/2021",patientMap.get(101L),doctorMap.get(001L),1L,"For Heart Problem",false,95.5F,80F);
+        Appointment appointmentTwo = getAppointment("05/10/2021",patientMap.get(102L),doctorMap.get(002L),2L,"For Bone Fracture",false,94.5F,81F);
+        Appointment appointmentThree = getAppointment("15/04/2021",patientMap.get(103L),doctorMap.get(003L),3L,"For Skin Allergy",false,92.5F,82.3F);
+        Appointment appointmentFour = getAppointment("25/04/2021",patientMap.get(104L),doctorMap.get(004L),4L,"For Tongue Problem",false,94.5F,84.3F);
 
-        appointmentThree = new Appointment();
-        appointmentThree.setAppointmentID(03L);
-        appointmentThree.setPatientID(patientMap.get(103L));
-        appointmentThree.setDoctorID(doctorMap.get(003L));
-        appointmentThree.setDateofVisit(new Date(2021,04,15));
-        appointmentThree.setPurposeofVisit("For Skin Allergy");
-        appointmentThree.setBP(92.5F);
-        appointmentThree.setTemperature(82.3F);
-        appointmentThree.setIsFirstVisit(false);
-
-        appointmentFour = new Appointment();
-        appointmentFour.setAppointmentID(04L);
-        appointmentFour.setPatientID(patientMap.get(104L));
-        appointmentFour.setDoctorID(doctorMap.get(004L));
-        appointmentFour.setDateofVisit(new Date(2021,04,15));
-        appointmentFour.setPurposeofVisit("For Tongue Problem");
-        appointmentFour.setBP(94.5F);
-        appointmentFour.setTemperature(84.3F);
-        appointmentFour.setIsFirstVisit(false);
-
-        appointmentMap.put(appointmentOne.getAppointmentID(), appointmentOne);
-        appointmentMap.put(appointmentTwo.getAppointmentID(), appointmentTwo);
-        appointmentMap.put(appointmentThree.getAppointmentID(), appointmentThree);
-        appointmentMap.put(appointmentFour.getAppointmentID(), appointmentFour);
+        appointmentMap.put(appointmentOne.getAppointmentId(), appointmentOne);
+        appointmentMap.put(appointmentTwo.getAppointmentId(), appointmentTwo);
+        appointmentMap.put(appointmentThree.getAppointmentId(), appointmentThree);
+        appointmentMap.put(appointmentFour.getAppointmentId(), appointmentFour);
 
         bedMap = new HashMap<>();
-        bedOne = new Bed();
-        bedOne.setBedID(01l);
-        bedOne.setBedType("Normal Bed");
-        bedOne.setRoomName("01");
 
-        bedTwo = new Bed();
-        bedTwo.setBedID(02l);
-        bedTwo.setBedType("Normal Bed");
-        bedTwo.setRoomName("02");
+        Bed bedOne = getBed(01l,"Normal Bed","01");
+        Bed bedTwo = getBed(02l,"Normal Bed","02");
+        Bed bedThree = getBed(03l,"Normal Bed","03");
+        Bed bedFour = getBed(04l,"Normal Bed","04");
+        Bed bedFive= getBed(05l,"Normal Bed","05");
 
-        bedThree = new Bed();
-        bedThree.setBedID(03l);
-        bedThree.setBedType("Normal Bed");
-        bedThree.setRoomName("01");
-
-        bedFour = new Bed();
-        bedFour.setBedID(04l);
-        bedFour.setBedType("Normal Bed");
-        bedFour.setRoomName("04");
-
-        bedFive = new Bed();
-        bedFive.setBedID(05l);
-        bedFive.setBedType("Normal Bed");
-        bedFive.setRoomName("05");
-
-        bedMap.put(bedOne.getBedID(), bedOne);
-        bedMap.put(bedTwo.getBedID(), bedTwo);
-        bedMap.put(bedThree.getBedID(), bedThree);
-        bedMap.put(bedFour.getBedID(), bedFour);
-        bedMap.put(bedFive.getBedID(), bedFive);
+        bedMap.put(bedOne.getBedId(), bedOne);
+        bedMap.put(bedTwo.getBedId(), bedTwo);
+        bedMap.put(bedThree.getBedId(), bedThree);
+        bedMap.put(bedFour.getBedId(), bedFour);
+        bedMap.put(bedFive.getBedId(), bedFive);
 
     }
 
@@ -208,34 +144,16 @@ public class ObjectMethod {
     static public void populateVisitInformation() {
 
         visitingMap =new HashMap<>();
-        visitingOne = new Visiting();
-        visitingOne.setVisitID(010L);
-        visitingOne.setAppointment(appointmentMap.get(1L));
-        visitingOne.setDoctorRecommendation("Walk Regularly");
-        visitingOne.setMedicine("Monopril");
 
-        visitingTwo = new Visiting();
-        visitingTwo.setVisitID(020L);
-        visitingTwo.setAppointment(appointmentMap.get(2L));
-        visitingTwo.setDoctorRecommendation("Take proper rest and relax");
-        visitingTwo.setMedicine("Vecuronium");
+        Visiting visitingOne = getVisiting(010L,appointmentMap.get(1L),"Walk Regularly","Monopril",true);
+        Visiting visitingTwo = getVisiting(020L,appointmentMap.get(2L),"Take proper rest and relax","Vecuronium",true);
+        Visiting visitingThree = getVisiting(030L,appointmentMap.get(3L),"Take sunlight at morning and evening","Avelumab",true);
+        Visiting visitingFour = getVisiting(040L,appointmentMap.get(4L),"Do Medication","Nystan",true);
 
-        visitingThree = new Visiting();
-        visitingThree.setVisitID(030L);
-        visitingThree.setAppointment(appointmentMap.get(3L));
-        visitingThree.setDoctorRecommendation("Take sunlight at morning and evening");
-        visitingThree.setMedicine("Avelumab");
-
-        visitingFour = new Visiting();
-        visitingFour.setVisitID(040L);
-        visitingFour.setAppointment(appointmentMap.get(4L));
-        visitingFour.setDoctorRecommendation("Do medication");
-        visitingFour.setMedicine("Nystan");
-
-        visitingMap.put(visitingOne.getVisitID(), visitingOne);
-        visitingMap.put(visitingTwo.getVisitID(), visitingTwo);
-        visitingMap.put(visitingThree.getVisitID(), visitingThree);
-        visitingMap.put(visitingFour.getVisitID(), visitingFour);
+        visitingMap.put(visitingOne.getVisitId(), visitingOne);
+        visitingMap.put(visitingTwo.getVisitId(), visitingTwo);
+        visitingMap.put(visitingThree.getVisitId(), visitingThree);
+        visitingMap.put(visitingFour.getVisitId(), visitingFour);
 
     }
 
@@ -277,4 +195,38 @@ public class ObjectMethod {
         patient.setType(phoneNumber);
         return patient;
     }
+
+    private static Bed getBed(Long bedId, String bedType,String roomName){
+        Bed bed = new Bed();
+        bed.setBedId(bedId);
+        bed.setBedType(bedType);
+        bed.setRoomName(roomName);
+        return bed;
+    }
+
+    private static Appointment getAppointment(String dateOfVisit,Patient patient,Doctor doctor,Long appointmentId,
+                                              String purposeOfVisit,boolean firstVisit,Float patientBP,Float patientTemperature){
+
+       Appointment appointment = new Appointment();
+       appointment.setDateofVisit(dateOfVisit);
+       appointment.setPatient(patient);
+       appointment.setDoctor(doctor);
+       appointment.setAppointmentId(appointmentId);
+       appointment.setPurposeOfVisit(purposeOfVisit);
+       appointment.setFirstVisit(firstVisit);
+       appointment.setPatientBP(patientBP);
+       appointment.setTemperature(patientTemperature);
+       return appointment;
+   }
+   private static Visiting getVisiting(Long visitId,Appointment appointment,String doctorRecommendation,String medicine,Boolean followUpNeeded){
+       Visiting visiting = new Visiting();
+       visiting.setVisitId(visitId);
+       visiting.setAppointment(appointment);
+       visiting.setDoctorRecommendation(doctorRecommendation);
+       visiting.setMedicine(medicine);
+       visiting.setFollowUpNeeded(followUpNeeded);
+       return visiting;
+   }
+
+   private static Medicine getMedicine(){}
 }

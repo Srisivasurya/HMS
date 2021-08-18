@@ -4,95 +4,95 @@ package HospitalManagement;
 import java.util.Date;
 
 public class Appointment {
-    private String dateofVisit;
-    private Patient patientID;
-    private Doctor doctorID;
-    private long appointmentID;
-    private String purposeofVisit;
-    private boolean isFirstVisit;
-    private Float BP;
-    private Float temperature;
+    private String dateOfVisit;
+    private Patient patient;
+    private Doctor doctor;
+    private Long appointmentId;
+    private String purposeOfVisit;
+    private boolean firstVisit;
+    private Float patientBP;
+    private Float patientTemperature;
 
-    public long getAppointmentID() {
-        return appointmentID;
+    public Long getAppointmentId() {
+        return appointmentId;
     }
 
-    public void setAppointmentID(long appointmentID) {
-        this.appointmentID = appointmentID;
-    }
-
-
-    public String getDateofVisit(){
-
-        return dateofVisit;
-    }
-
-    public void setDateofVisit( Date dateofVisit ){
-
-        this.dateofVisit = String.valueOf(dateofVisit);
+    public void setAppointmentId(Long appointmentID) {
+        this.appointmentId = appointmentId;
     }
 
 
-    public Patient getPatientID() {
-        return patientID;
+    public String getDateOfVisit(){
+
+        return dateOfVisit;
     }
 
-    public void setPatientID(Patient patientID) {
-        this.patientID = patientID;
+    public void setDateofVisit( String dateOfVisit ){
+
+        this.dateOfVisit = dateOfVisit;
     }
 
-    public Doctor getDoctorID() {
 
-        return doctorID;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setDoctorID(Doctor doctorID) {
-
-        this.doctorID = doctorID;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-    public String getPurposeofVisit(){
+    public Doctor getDoctor() {
 
-        return purposeofVisit;
+        return doctor;
     }
 
-    public void setPurposeofVisit( String purposeofVisit ){
+    public void setDoctor(Doctor doctor) {
 
-        this.purposeofVisit = purposeofVisit;
+        this.doctor = doctor;
     }
 
-    public String getIsFirstVisit(){
+    public String getPurposeOfVisit(){
 
-        return String.valueOf(isFirstVisit);
+        return purposeOfVisit;
     }
 
-    public void setIsFirstVisit(boolean isFirstVisit ){
+    public void setPurposeOfVisit( String purposeOfVisit ){
 
-        this.isFirstVisit = isFirstVisit;
+        this.purposeOfVisit = purposeOfVisit;
     }
 
-    public Float getBP(){
+    public String getFirstVisit(){
 
-        return BP;
+        return String.valueOf(firstVisit);
     }
 
-    public void setBP( Float BP ){
+    public void setFirstVisit(boolean firstVisit ){
 
-        this.BP =  BP;
+        this.firstVisit = firstVisit;
+    }
+
+    public Float getPatientBP(){
+
+        return patientBP;
+    }
+
+    public void setPatientBP( Float patientBP ){
+
+        this.patientBP =  patientBP;
     }
 
     public Float getTemperature(){
 
-        return temperature;
+        return patientTemperature;
     }
 
     public void setTemperature( Float temperature ){
 
-        this.temperature =  temperature;
+        this.patientTemperature =  patientTemperature;
     }
 
     public String toString() {
-        return "Appointment{" + "appointmentId=" + appointmentID + ", patient=" + patientID + ", dateOfVisit=" + dateofVisit + ", purposeOfVisit='" + purposeofVisit + '\'' + ", isFirstVisit=" + isFirstVisit + ", bp=" + BP + ", temperature=" + temperature + ", doctor=" + doctorID +   '}';
+        return "Appointment{" + "appointmentId=" + appointmentId + ", patient=" + patient + ", dateOfVisit=" + dateOfVisit + ", purposeOfVisit='" + purposeOfVisit + '\'' + ", FirstVisit=" + firstVisit + ", patient bp=" + patientBP + ", Patient temperature=" + patientTemperature + ", doctor=" + doctor +   '}';
     }
 
 

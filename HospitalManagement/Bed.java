@@ -1,16 +1,16 @@
 package HospitalManagement;
 
 public class Bed {
-    Long bedID;
+    Long bedId;
     String bedType;
     String roomName;
 
-    public Long getBedID() {
-        return bedID;
+    public Long getBedId() {
+        return bedId;
     }
 
-    public void setBedID(Long bedID) {
-        this.bedID = bedID;
+    public void setBedId(Long bedId) {
+        this.bedId = bedId;
     }
 
     public String getBedType() {
@@ -32,6 +32,6 @@ public class Bed {
 
 
     public String toString() {
-        return "Bed{" + "bedId=" + bedID + ", bedType='" + bedType + '\'' + ", roomName='" + roomName + '\'' + '}';
+        return "Bed{" + "bedId=" + bedId + ", bedType='" + bedType + '\'' + ", roomName='" + roomName + '\'' + '}';
     }
 }

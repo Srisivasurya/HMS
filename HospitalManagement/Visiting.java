@@ -1,28 +1,28 @@
 package HospitalManagement;
 
 public class Visiting {
-    private long visitID;
-    private Appointment appointmentID;
+    private Long visitId;
+    private Appointment appointment;
     private String doctorRecommendation;
     private String medicine;
-    private String followUpNeeded;
+    private Boolean followUpNeeded;
 
-    public long getVisitID() {
+    public Long getVisitId() {
 
-        return visitID;
+        return visitId;
     }
 
-    public void setVisitID(long visitID) {
+    public void setVisitId(Long visitId) {
 
-        this.visitID = visitID;
+        this.visitId = visitId;
     }
 
-    public Appointment getAppointmentID(Appointment appointmentID) {
-        return this.appointmentID;
+    public Appointment getAppointment(Appointment appointment) {
+        return this.appointment;
     }
 
-    public void setAppointment(Appointment appointmentID) {
-        this.appointmentID = appointmentID;
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
     }
 
     public String getDoctorRecommendation(){
@@ -45,18 +45,18 @@ public class Visiting {
         this.medicine = medicine;
     }
 
-    public String getFollowUpNeeded(){
+    public Boolean getFollowUpNeeded(){
 
         return followUpNeeded;
     }
 
-    public void setFollowUpNeeded( String followUpNeeded ){
+    public void setFollowUpNeeded( Boolean followUpNeeded ){
 
         this.followUpNeeded = followUpNeeded;
     }
 
     public String toString() {
-        return "VisitLogInformation{" + "visitId=" + visitID + ", appointment=" + appointmentID + ", doctorRecommendation='" + doctorRecommendation + '\'' + ", followUpNeed=" + followUpNeeded + '}';
+        return "VisitLogInformation{" + "visitId=" + visitId + ", appointment=" + appointment + ", doctorRecommendation='" + doctorRecommendation + '\'' + ", followUpNeed=" + followUpNeeded + '}';
     }
 }
 

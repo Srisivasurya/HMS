@@ -3,13 +3,13 @@ package HospitalManagement;
 import java.util.Date;
 
 public class Medicine {
-    private long medicineId;
+    private Long medicineId;
     private String medicineName;
     private String expiryDate;
-    private long batchNumber;
+    private Long batchNumber;
     private String purposeOfMedicine;
 
-    public long getMedicineId(){
+    public Long getMedicineId(){
 
         return medicineId;
     }
