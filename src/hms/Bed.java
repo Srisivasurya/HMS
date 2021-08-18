@@ -9,7 +9,7 @@ public class Bed {
         return bedId;
     }
 
-    public void setBedId(Long bedId) {
+    public  void setBedId(Long bedId) {
         this.bedId = bedId;
     }
 
@@ -32,6 +32,6 @@ public class Bed {
 
 
     public String toString() {
-        return "Bed{" + "bedId=" + bedId + ", bedType='" + bedType + '\'' + ", roomName='" + roomName + '\'' + '}';
+        return "Bed{" + "bedId=" + bedID + ", bedType='" + bedType + '\'' + ", roomName='" + roomName + '\'' + '}';
     }
 }
