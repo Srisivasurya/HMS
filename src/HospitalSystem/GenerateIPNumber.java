@@ -1,4 +1,4 @@
-package HospitalManagement;
+package HospitalSystem;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package HospitalManagement;
+package HospitalSystem;
 
 public class Bed {
     Long bedId;
@@ -32,6 +32,6 @@ public class Bed {
 
 
     public String toString() {
-        return "Bed{" + "bedId=" + bedID + ", bedType='" + bedType + '\'' + ", roomName='" + roomName + '\'' + '}';
+        return "Bed{" + "bedId=" + bedId + ", bedType='" + bedType + '\'' + ", roomName='" + roomName + '\'' + '}';
     }
 }

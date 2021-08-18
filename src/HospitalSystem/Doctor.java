@@ -1,4 +1,4 @@
-package HospitalManagement;
+package HospitalSystem;
 
 public class Doctor {
 
