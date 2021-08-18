@@ -2,6 +2,7 @@ package HospitalManagement;
 
 import java.util.Date;
 
+
 public class Medicine {
     private Long medicineId;
     private String medicineName;
@@ -34,9 +35,9 @@ public class Medicine {
         return  expiryDate;
     }
 
-    public void setExpiryDate( Date expiryDate ){
+    public void setExpiryDate(String expiryDate ){
 
-        this.expiryDate = String.valueOf(expiryDate);
+        this.expiryDate = expiryDate;
     }
 
     public long getBatchNumber(){

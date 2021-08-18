@@ -7,7 +7,7 @@ import java.util.*;
 
 public class CreateAppointment {
     public void createAppointment(Long patientID, Map<Long,Patient> patientMap,Long doctorID, Map<Long,Doctor>doctorMap
-            ,String purposeofVisit, Date dateofVisit, Map<Long,Appointment> appointmentMap) throws Exception {
+            ,String purposeofVisit, String dateOfVisit, Map<Long,Appointment> appointmentMap) throws Exception {
 
         if(patientID == null){
             throw new Exception("Patient ID is null");
@@ -33,12 +33,12 @@ public class CreateAppointment {
             p = patientMap.get(patientID);
         }
         Appointment appointment = new Appointment();
-        appointment.setAppointmentID(GenerateAID.getId(new ArrayList<>(appointmentMap.keySet())));
-        appointment.setDateofVisit(dateofVisit);
-        appointment.setDoctorID(doctorMap.get(doctorID));
-        appointment.setPatientID(p);
-        appointment.setPurposeofVisit(purposeofVisit);
-        appointment.setIsFirstVisit(true);
+        appointment.setAppointmentId(GenerateAID.getId(new ArrayList<>(appointmentMap.keySet())));
+        appointment.setDateofVisit(dateOfVisit);
+        appointment.setDoctor(doctorMap.get(doctorID));
+        appointment.setPatient(p);
+        appointment.setPurposeOfVisit(purposeofVisit);
+        appointment.setFirstVisit(true);
 
         Iterator<Long> iter = appointmentMap.keySet().iterator();
         Appointment appt = new Appointment();
@@ -46,12 +46,12 @@ public class CreateAppointment {
         while (iter.hasNext()) {
             appointmentId = iter.next();
             appt = appointmentMap.get(appointmentId);
-            if (appt.getPatientID() != null && appt.getPatientID().getPatientId() == patientID) {
-                appointment.setIsFirstVisit(false);
+            if (appt.getPatient() != null && appt.getPatient().getPatientId() == patientID) {
+                appointment.setFirstVisit(false);
                 break;
             }
         }
-        appointmentMap.put(appointment.getAppointmentID(), appointment);
+        appointmentMap.put(appointment.getAppointmentId(), appointment);
 
     }
 

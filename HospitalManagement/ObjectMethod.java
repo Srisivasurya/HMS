@@ -63,40 +63,16 @@ public class ObjectMethod {
         patientMap.put(patientBadsha.getPatientId(), patientBadsha);
 
         medicineMap = new HashMap<>();
-        medicineMonopril = new Medicine();
-        medicineMonopril.setMedicineName( "Monopril" );
-        medicineMonopril.setMedicineId(1001L);
-        medicineMonopril.setBatchNumber(2001L);
-        medicineMonopril.setExpiryDate(new Date(2023,02,12));
-        medicineMonopril.setPurposeOfMedicine("For clearing blood clot");
 
-        medicineVecuronium = new Medicine();
-        medicineVecuronium.setMedicineName( "Vecuronium" );
-        medicineVecuronium.setMedicineId(1002L);
-        medicineVecuronium.setBatchNumber(2002L);
-        medicineVecuronium.setExpiryDate(new Date(2023,04,15));
-        medicineVecuronium.setPurposeOfMedicine("For Bone strength");
-
-
-        medicineAvelumab = new Medicine();
-        medicineAvelumab.setMedicineName( "Avelumab" );
-        medicineAvelumab.setMedicineId(1003L);
-        medicineAvelumab.setBatchNumber(2003L);
-        medicineAvelumab.setExpiryDate(new Date(2023,06,25));
-        medicineAvelumab.setPurposeOfMedicine("For Skin Disease");
-
-        medicineNystan = new Medicine();
-        medicineNystan .setMedicineName( "Nystan" );
-        medicineNystan .setMedicineId(1004L);
-        medicineNystan .setBatchNumber(2004L);
-        medicineNystan .setExpiryDate(new Date(2023,07,28));
-        medicineNystan .setPurposeOfMedicine("For Nose and Tongue Problem");
+        Medicine medicineMonopril = getMedicine(1001L,"Monopril","12/02/2023",2001L,"For clearing blood clot");
+        Medicine medicineVecuronium = getMedicine(1002L,"Vecuronium","15/04/2023",2002L,"For Bone strength");
+        Medicine medicineAvelumab = getMedicine(1003L,"Aveluamb","25/06/2023",2003L,"For Skin Disease");
+        Medicine medicineNystan = getMedicine(1004L,"Nystan","28/07/2023",2004L,"For Nose and Tongue Problem");
 
         medicineMap.put(medicineMonopril.getMedicineId(),medicineMonopril);
         medicineMap.put(medicineVecuronium.getMedicineId(),medicineVecuronium);
         medicineMap.put(medicineAvelumab.getMedicineId(), medicineAvelumab);
         medicineMap.put(medicineNystan.getMedicineId(), medicineNystan);
-
 
         appointmentMap= new HashMap<>();
 
@@ -228,5 +204,14 @@ public class ObjectMethod {
        return visiting;
    }
 
-   private static Medicine getMedicine(){}
+   private static Medicine getMedicine(Long medicineId,String medicineName,String expiryDate,Long batchNumber,
+                                       String purchaseOfMedicine){
+       Medicine medicine = new Medicine();
+       medicine.setMedicineId(medicineId);
+       medicine.setMedicineName(medicineName);
+       medicine.setExpiryDate(expiryDate);
+       medicine.setBatchNumber(batchNumber);
+       medicine.setPurposeOfMedicine(purchaseOfMedicine);
+       return medicine;
+   }
 }
