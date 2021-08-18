@@ -2,10 +2,10 @@ package HospitalSystem;
 
 import java.util.Map;
 
-class InPatientDetails {
+class InPatientBO {
 
-    public void allocateBedForINPatient(Long patientID, Map<Long, InPatient> inPatientMap,
-                                        Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
+    public void allocateBed(Long patientID, Map<Long, InPatient> inPatientMap,
+                            Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
 
         System.out.println("hi");
 

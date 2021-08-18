@@ -135,6 +135,16 @@ public class ObjectMethod {
 
         populateVisitInformation();
 
+        AppointmentBO appointmentBO = new AppointmentBO();
+
+        try {
+            appointmentBO.createAppointment(101l, patientMap,0001l,doctorMap,"For Heart Problem","04/04/2021",appointmentMap);
+
+        } catch (Exception e) {
+            System.out.println( e.getMessage());
+        }
+
+
 
 
     }
