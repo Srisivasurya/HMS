@@ -15,12 +15,10 @@ public class ObjectMethod {
     private static Map<Long,Patient> patientMap;
 
     private static Map <Long,Medicine> medicineMap;
+
     private static Medicine medicine;
+
     private static List<Medicine> medicineList;
-    private static Medicine medicineMonopril;
-    private static Medicine medicineVecuronium;
-    private static Medicine medicineAvelumab;
-    private static Medicine medicineNystan;
 
     private static Map <Long,Appointment> appointmentMap;
 
