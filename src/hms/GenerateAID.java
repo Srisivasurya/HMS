@@ -1,4 +1,4 @@
-package HospitalSystem;
+package hms;
 
 
 import java.util.ArrayList;

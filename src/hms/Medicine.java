@@ -1,6 +1,4 @@
-package HospitalSystem;
-
-import java.util.Date;
+package hms;
 
 
 public class Medicine {

@@ -1,6 +1,4 @@
-package HospitalSystem;
-
-import java.util.*;
+package hms;
 
 public class Hospital {
     private Long hospitalId;

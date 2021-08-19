@@ -1,6 +1,5 @@
-package HospitalSystem;
+package hms;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -141,7 +140,7 @@ public class ObjectMethod {
             appointmentBO.createAppointment(101l, patientMap,0001l,doctorMap,"For Heart Problem","04/04/2021",appointmentMap);
 
         } catch (Exception e) {
-            System.out.println( e.getMessage());
+            System.out.println(e.getMessage());
         }
 
 

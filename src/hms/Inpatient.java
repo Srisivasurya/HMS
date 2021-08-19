@@ -1,4 +1,4 @@
-package HospitalSystem;
+package hms;
 
 class InPatient {
     Long patientId;

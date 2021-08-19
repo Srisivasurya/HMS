@@ -1,4 +1,4 @@
-package HospitalSystem;
+package hms;
 
 public class Doctor {
 

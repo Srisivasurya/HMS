@@ -1,10 +1,10 @@
-package HospitalSystem;
+package hms;
 
 import java.util.Map;
 
 class InPatientBO {
 
-    public void allocateBed(Long patientID, Map<Long, InPatient> inPatientMap,
+    public void allocateBed(Long patientId, Map<Long, Patient> patientMap,Long patientID, Map<Long, InPatient> inPatientMap,
                             Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
 
         System.out.println("hi");
@@ -26,10 +26,13 @@ class InPatientBO {
             throw new Exception("Room Is Not Available : ");
         }
 
-        InPatient inPatient = null;
-        if (inPatientMap.containsKey(patientID)) {
-            inPatient = inPatientMap.get(patientID);
-            System.out.println(inPatient);
+        Patient patient = new Patient();
+        if (patientMap.containsKey(patientId)) {
+            patient = patientMap.get(patientId);
+        } else {
+            throw new Exception("Patient is not Available : ");
         }
-    }
+
+        }
+    }return null;
 }

@@ -1,7 +1,5 @@
 
-package HospitalSystem;
-
-import java.util.Date;
+package hms;
 
 public class Appointment {
     private String dateOfVisit;

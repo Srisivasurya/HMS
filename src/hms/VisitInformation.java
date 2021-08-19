@@ -1,9 +1,6 @@
-package HospitalSystem;
+package hms;
 
 import java.util.Map;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.*;
 
 public class VisitInformation {
     private Long appointmentId;
