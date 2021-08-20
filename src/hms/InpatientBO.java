@@ -1,4 +1,4 @@
-/*package hms;
+package hms;
 
 import java.util.Map;
 
@@ -35,5 +35,5 @@ class InPatientBO {
 
         }
     }
-    return
-}*/
+
+}
