@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class GenerateIPNumber {
 
-    static public Long getIpIdentificationNumber( ArrayList<Long> id) {
+    public static Long getIpIdentificationNumber( ArrayList<Long> id) {
 
         Collections.sort(id);
         Long ipId = (new Long(id.size()));
