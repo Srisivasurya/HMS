@@ -143,9 +143,18 @@ public class ObjectMethod {
             System.out.println(e.getMessage());
         }
 
+        ReportBO rtBO = new ReportBO();
+        try {
+            rtBO.getPatientDetails(102L,"Chandra",patientMap);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-
-
+        try {
+            rtBO.displayOutPatient(patientMap);
+        } catch (Exception e) {
+            System.out.println(" Invalid Patient details : " + e.getMessage());
+        }
     }
     /**
      * @param doctorId

@@ -1,6 +1,7 @@
 package hms;
 
 import java.util.Map;
+import java.util.Iterator;
 
 public class VisitInformation {
     private Long appointmentId;
@@ -45,8 +46,18 @@ public class VisitInformation {
         visit.setDoctorRecommendation(doctorRecommendation);
         visit.setMedicine(medicine);
         visit.setFollowUpNeeded(followUpNeeded);
+        visit.setAppointment(appointment);
 
-        return null;
+        Iterator<Long> iter = visitingMap.keySet().iterator();
+        int visitcount = 0;
+        VisitInformation visitsinfo;
+        while (iter.hasNext()){}
+        if(visitcount>=3){
+            patient.setType("IP");
+        }
+
+
+     return patient;
     }
 
 }

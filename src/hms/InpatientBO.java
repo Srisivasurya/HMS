@@ -32,8 +32,8 @@ class InPatientBO {
         } else {
             throw new Exception("Patient is not Available : ");
         }
-
-        }
     }
 
 }
+
+

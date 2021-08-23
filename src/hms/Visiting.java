@@ -58,5 +58,6 @@ public class Visiting {
     public String toString() {
         return "VisitLogInformation{" + "visitId=" + visitId + ", appointment=" + appointment + ", doctorRecommendation='" + doctorRecommendation + '\'' + ", followUpNeed=" + followUpNeeded + '}';
     }
+
 }
 
