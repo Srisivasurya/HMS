@@ -21,11 +21,11 @@ public class ObjectMethod {
 
     private static Map <Long,Appointment> appointmentMap;
 
-    static private Map<Long, InPatient> inPatientMap;
+    private static Map<Long, InPatient> inPatientMap;
 
     private static Map<Long,Visiting> visitingMap;;
 
-    static private Map<Long, Bed> bedMap;
+    private static Map<Long, Bed> bedMap;
 
     static {
 

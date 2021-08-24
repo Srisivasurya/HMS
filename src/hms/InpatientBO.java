@@ -5,9 +5,9 @@ import java.util.Map;
 class InPatientBO {
 
     public void allocateBed(Long patientId, Map<Long, Patient> patientMap,Long patientID, Map<Long, InPatient> inPatientMap,
-                            Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
+                             Long bedId,Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
 
-        System.out.println("hi");
+        InPatient inPatient = new InPatient();
 
         if (patientID == null) {
             throw new Exception("InValid InPatient Id : ");
@@ -32,6 +32,15 @@ class InPatientBO {
         } else {
             throw new Exception("Patient is not Available : ");
         }
+
+        if(patient.getType().equals("IP")){
+            inPatient.setPatientId(patientId);
+            inPatient.setBed(bedId);
+        }
+        else{
+            throw new Exception("No Bed for Out Patient");
+        }
+        inPatientMap.put(inPatient.getIpIdentificationNumber(),inPatient);
     }
 
 }

@@ -47,4 +47,34 @@ public class ReportBO {
         }
         System.out.println("");
     }
+
+    public void displayDoctor(Long doctorId,Map<Long,Appointment> appointmentMap) throws Exception {
+
+        if(appointmentMap.isEmpty()){
+            throw new Exception("Appointment Map is null");
+        }
+        if(doctorId == null){
+            throw new Exception("Doctor ID is null");
+        }
+
+        Iterator<Long> itr = appointmentMap.keySet().iterator();
+        while (itr.hasNext()){
+            Appointment appointment = (Appointment) appointmentMap.keySet().iterator();
+            if(appointment.getDoctor().getDoctorID()==doctorId){
+                System.out.println("List of Doctor:"+appointment.getDoctor());
+            }
+        }
+    }
+
+    public void displayInPatient(Map<Long,InPatient> inPatientMap) throws Exception{
+        if(inPatientMap.isEmpty()){
+            throw new Exception("InPatient Map is empty");
+        }
+        InPatient inPatient = new InPatient();
+        Iterator<Long> itr = inPatientMap.keySet().iterator();
+        while(itr.hasNext()){
+            inPatient = inPatientMap.get(itr.next());
+            System.out.println("Inpatient List"+ inPatient.getPatientID());
+        }
+    }
 }
