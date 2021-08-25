@@ -13,7 +13,7 @@ class InPatientBO {
             throw new Exception("InValid InPatient Id : ");
         }
         if (inPatientMap.isEmpty()) {
-            throw new Exception("InPatient Details is Empty : ");
+            throw new Exception("InPatient HospitalManagementSystem is Empty : ");
         }
         if (bedMap.isEmpty()) {
             throw new Exception("BedDetails Is Empty : ");
@@ -43,6 +43,8 @@ class InPatientBO {
         inPatientMap.put(inPatient.getIpIdentificationNumber(),inPatient);
     }
 
+    public void allocateBed(long l, Map<Long, Patient> patientMap, long l1, Map<Long, InPatient> inPatientMap, long l2, String s, Map<Long, Bed> bedMap) {
+    }
 }
 
 

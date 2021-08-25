@@ -1,12 +1,8 @@
 package hms;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
-public class ObjectMethod {
+public class HospitalManagementSystem {
     private static Map <Long,Hospital> hospitalMap;
 
     private static Map<Long,Doctor> doctorMap;
@@ -143,6 +139,13 @@ public class ObjectMethod {
             System.out.println(e.getMessage());
         }
 
+        InPatientBO inPatientBO = new InPatientBO();
+        try {
+            inPatientBO.allocateBed(102L,patientMap,102l,inPatientMap,01L,"01",bedMap);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         ReportBO rtBO = new ReportBO();
         try {
             rtBO.getPatientDetails(102L,"Chandra",patientMap);
@@ -196,11 +199,11 @@ public class ObjectMethod {
         return bed;
     }
 
-    private static Appointment getAppointment(String dateOfVisit,Patient patient,Doctor doctor,Long appointmentId,
-                                              String purposeOfVisit,boolean firstVisit,Float patientBP,Float patientTemperature){
+    private static Appointment getAppointment(String dateOfVisit, Patient patient, Doctor doctor, Long appointmentId,
+                                              String purposeOfVisit, boolean firstVisit, Float patientBP, Float patientTemperature){
 
        Appointment appointment = new Appointment();
-       appointment.setDateofVisit(dateOfVisit);
+       appointment.setDateofVisit(DateUtility.getDate(dateOfVisit));
        appointment.setPatient(patient);
        appointment.setDoctor(doctor);
        appointment.setAppointmentId(appointmentId);

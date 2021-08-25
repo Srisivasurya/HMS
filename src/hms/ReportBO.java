@@ -77,4 +77,24 @@ public class ReportBO {
             System.out.println("Inpatient List"+ inPatient.getPatientID());
         }
     }
+
+    public void visitInfo(Map<Long,Visiting> visitMap,Long patientId) throws Exception{
+
+        if(visitMap.isEmpty()){
+            throw new Exception("Visit Map is Empty");
+        }
+
+        if(patientId == null){
+            throw new Exception("Patient id is null");
+        }
+
+        Visiting visitinfo = new Visiting();
+
+        Iterator<Long> itr = visitMap.keySet().iterator();
+        while(itr.hasNext()){
+
+            visitinfo = visitMap.get(itr.next());
+
+        }
+    }
 }

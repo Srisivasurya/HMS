@@ -1,8 +1,9 @@
 
 package hms;
+import java.util.Date;
 
 public class Appointment {
-    private String dateOfVisit;
+    private Date dateOfVisit;
     private Patient patient;
     private Doctor doctor;
     private Long appointmentId;
@@ -20,12 +21,12 @@ public class Appointment {
     }
 
 
-    public String getDateOfVisit(){
+    public Date getDateOfVisit(){
 
         return dateOfVisit;
     }
 
-    public void setDateofVisit( String dateOfVisit ){
+    public void setDateofVisit( Date dateOfVisit ){
 
         this.dateOfVisit = dateOfVisit;
     }
