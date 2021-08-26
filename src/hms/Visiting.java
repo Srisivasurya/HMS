@@ -17,7 +17,7 @@ public class Visiting {
         this.visitId = visitId;
     }
 
-    public Appointment getAppointment(Appointment appointment) {
+    public Appointment getAppointment() {
         return this.appointment;
     }
 

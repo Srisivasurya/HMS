@@ -114,10 +114,10 @@ public class HospitalManagementSystem {
 
         visitingMap =new HashMap<>();
 
-        Visiting visitingOne = getVisiting(010L,appointmentMap.get(1L),"Walk Regularly","Monopril",true);
-        Visiting visitingTwo = getVisiting(020L,appointmentMap.get(2L),"Take proper rest and relax","Vecuronium",true);
-        Visiting visitingThree = getVisiting(030L,appointmentMap.get(3L),"Take sunlight at morning and evening","Avelumab",true);
-        Visiting visitingFour = getVisiting(040L,appointmentMap.get(4L),"Do Medication","Nystan",true);
+        Visiting visitingOne = getVisiting(010L,appointmentMap.get(101L),"Walk Regularly","Monopril",true);
+        Visiting visitingTwo = getVisiting(020L,appointmentMap.get(102L),"Take proper rest and relax","Vecuronium",true);
+        Visiting visitingThree = getVisiting(030L,appointmentMap.get(103L),"Take sunlight at morning and evening","Avelumab",true);
+        Visiting visitingFour = getVisiting(040L,appointmentMap.get(104L),"Do Medication","Nystan",true);
 
         visitingMap.put(visitingOne.getVisitId(), visitingOne);
         visitingMap.put(visitingTwo.getVisitId(), visitingTwo);
@@ -146,6 +146,15 @@ public class HospitalManagementSystem {
             System.out.println(e.getMessage());
         }
 
+        VisitInformation visitInfo = new VisitInformation();
+
+        try {
+            visitInfo.checkNoofVisit(102L,appointmentMap,"Take proper rest and relax","Vecuronium",true,visitingMap);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
         ReportBO rtBO = new ReportBO();
         try {
             rtBO.getPatientDetails(102L,"Chandra",patientMap);
@@ -157,6 +166,27 @@ public class HospitalManagementSystem {
             rtBO.displayOutPatient(patientMap);
         } catch (Exception e) {
             System.out.println(" Invalid Patient details : " + e.getMessage());
+        }
+        try{
+
+            rtBO.displayDoctor(101L,appointmentMap);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            rtBO.displayInPatient(inPatientMap);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            rtBO.visitInfo(visitingMap,030L);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            rtBO.patientFollowUp(visitingMap);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
     /**

@@ -1,7 +1,7 @@
 package hms;
 
 import java.util.Map;
-
+import java.util.ArrayList;
 class InPatientBO {
 
     public void allocateBed(Long patientId, Map<Long, Patient> patientMap,Long patientID, Map<Long, InPatient> inPatientMap,
@@ -32,6 +32,8 @@ class InPatientBO {
         } else {
             throw new Exception("Patient is not Available : ");
         }
+
+        inPatient.setIpIdentificationNumber(GenerateIPNumber.getIpIdentificationNumber(new ArrayList<Long>(inPatientMap.keySet())));
 
         if(patient.getType().equals("IP")){
             inPatient.setPatientId(patientId);

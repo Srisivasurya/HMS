@@ -2,6 +2,7 @@ package hms;
 
 import java.util.Map;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 public class VisitInformation {
     private Long appointmentId;
@@ -43,21 +44,37 @@ public class VisitInformation {
 
         Visiting visit = new Visiting();
 
+        visit.setVisitId(GenerateVisitId.getVisitId(new ArrayList<>(visitingMap.keySet())));
         visit.setDoctorRecommendation(doctorRecommendation);
         visit.setMedicine(medicine);
         visit.setFollowUpNeeded(followUpNeeded);
         visit.setAppointment(appointment);
 
+        visitingMap.put(visit.getVisitId(),visit);
+
+        return patient;
+    }
+
+    public boolean checkPatientType(Map<Long,Visiting> visitingMap,Patient patient){
+
         Iterator<Long> iter = visitingMap.keySet().iterator();
+        Visiting visiting = new Visiting();
         int visitcount = 0;
-        VisitInformation visitsinfo;
-        while (iter.hasNext()){}
-        if(visitcount>=3){
-            patient.setType("IP");
+        while(iter.hasNext()){
+            visiting = visitingMap.get(iter.next());
+            if(visiting.getAppointment().getPatient().getPatientId() == patient.getPatientId()){
+                visitcount++;
+            }
+
+            System.out.println("Visit Count"+visitcount);
+
+            if(visitcount >= 3){
+                patient.setType("IP");
+                return true;
+            }
         }
-
-
-     return patient;
+        return false;
     }
 
 }
+

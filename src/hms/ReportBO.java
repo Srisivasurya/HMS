@@ -2,7 +2,7 @@ package hms;
 
 import java.util.*;
 
-public class ReportBO {
+class ReportBO {
 
     public void getPatientDetails(Long patientId, String patientName, Map<Long, Patient> patientMap) throws Exception {
 
@@ -78,9 +78,9 @@ public class ReportBO {
         }
     }
 
-    public void visitInfo(Map<Long,Visiting> visitMap,Long patientId) throws Exception{
+    public void visitInfo(Map<Long,Visiting> visitingMap,Long patientId) throws Exception{
 
-        if(visitMap.isEmpty()){
+        if(visitingMap.isEmpty()){
             throw new Exception("Visit Map is Empty");
         }
 
@@ -90,11 +90,30 @@ public class ReportBO {
 
         Visiting visitinfo = new Visiting();
 
-        Iterator<Long> itr = visitMap.keySet().iterator();
+        Iterator<Long> itr = visitingMap.keySet().iterator();
         while(itr.hasNext()){
 
-            visitinfo = visitMap.get(itr.next());
+            visitinfo = visitingMap.get(itr.next());
+            if(visitinfo.getAppointment().getPatient().getPatientId() == patientId){
+                System.out.println("Vist of Patient"+visitinfo);
+            }
 
+        }
+    }
+
+    public void patientFollowUp(Map<Long,Visiting> visitingMap)throws Exception{
+        if(visitingMap.isEmpty()){
+            throw new Exception("Visiting Map is null");
+        }
+
+        Iterator<Long> itr =visitingMap.keySet().iterator();
+        while(itr.hasNext()){
+
+            Visiting followup = new Visiting();
+            followup = visitingMap.get(itr.next());
+            if(followup.getFollowUpNeeded() == true){
+                System.out.println("Folloup needed for patient"+followup);
+            }
         }
     }
 }
