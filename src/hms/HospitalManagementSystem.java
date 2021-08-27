@@ -37,11 +37,13 @@ public class HospitalManagementSystem {
         Doctor doctorRamesh = getDoctor(0002l,"Dr. RameshNatarajan","Orthopedics");
         Doctor doctorGuru = getDoctor(0003l,"Dr. Gurunathan","Dermatalogist");
         Doctor doctorDeepa = getDoctor(0004l,"Dr. Deepa","Otolaryngologist");
+        Doctor doctorSiva = getDoctor(0005l,"Dr. Siva","Psychotist");
 
         doctorMap.put(doctorSurya.getDoctorID(), doctorSurya);
         doctorMap.put(doctorRamesh.getDoctorID(), doctorRamesh);
         doctorMap.put(doctorGuru.getDoctorID(), doctorGuru);
         doctorMap.put(doctorDeepa.getDoctorID(), doctorDeepa);
+        doctorMap.put(doctorSiva.getDoctorID(), doctorSiva);
 
         patientMap = new HashMap<>();
 
@@ -49,11 +51,13 @@ public class HospitalManagementSystem {
         Patient patientChandhra = getPatient(102l,"Chandhra",01/02/1999,"7397511890","Outpatient");
         Patient patientLaxmi = getPatient(103l,"Laxmi",10/11/1997,"7505545896","Outpatient");
         Patient patientBadsha = getPatient(104l,"Badsha",20/01/2002,"8524596210","Outpatient");
+        Patient patientBabu = getPatient(105l,"Babu",20/05/2002,"7397528910","Outpatient");
 
         patientMap.put(patientSivahari.getPatientId(), patientSivahari);
         patientMap.put(patientChandhra.getPatientId(), patientChandhra);
         patientMap.put(patientLaxmi.getPatientId(), patientLaxmi);
         patientMap.put(patientBadsha.getPatientId(), patientBadsha);
+        patientMap.put(patientBabu.getPatientId(), patientBabu);
 
         medicineMap = new HashMap<>();
 
@@ -61,11 +65,14 @@ public class HospitalManagementSystem {
         Medicine medicineVecuronium = getMedicine(1002L,"Vecuronium","15/04/2023",2002L,"For Bone strength");
         Medicine medicineAvelumab = getMedicine(1003L,"Aveluamb","25/06/2023",2003L,"For Skin Disease");
         Medicine medicineNystan = getMedicine(1004L,"Nystan","28/07/2023",2004L,"For Nose and Tongue Problem");
+        Medicine medicineOrnlo = getMedicine(1005L,"Orlno","28/09/2023",2005L,"For relaxing mental stress");
+
 
         medicineMap.put(medicineMonopril.getMedicineId(),medicineMonopril);
         medicineMap.put(medicineVecuronium.getMedicineId(),medicineVecuronium);
         medicineMap.put(medicineAvelumab.getMedicineId(), medicineAvelumab);
         medicineMap.put(medicineNystan.getMedicineId(), medicineNystan);
+        medicineMap.put(medicineOrnlo.getMedicineId(), medicineOrnlo);
 
         appointmentMap= new HashMap<>();
 
@@ -73,11 +80,14 @@ public class HospitalManagementSystem {
         Appointment appointmentTwo = getAppointment("05/10/2021",patientMap.get(102L),doctorMap.get(002L),2L,"For Bone Fracture",false,94.5F,81F);
         Appointment appointmentThree = getAppointment("15/04/2021",patientMap.get(103L),doctorMap.get(003L),3L,"For Skin Allergy",false,92.5F,82.3F);
         Appointment appointmentFour = getAppointment("25/04/2021",patientMap.get(104L),doctorMap.get(004L),4L,"For Tongue Problem",false,94.5F,84.3F);
+        Appointment appointmentFive = getAppointment("30/04/2021",patientMap.get(105L),doctorMap.get(005L),5L,"For Mental Stress",false,96.5F,83.3F);
 
         appointmentMap.put(appointmentOne.getAppointmentId(), appointmentOne);
         appointmentMap.put(appointmentTwo.getAppointmentId(), appointmentTwo);
         appointmentMap.put(appointmentThree.getAppointmentId(), appointmentThree);
         appointmentMap.put(appointmentFour.getAppointmentId(), appointmentFour);
+        appointmentMap.put(appointmentFive.getAppointmentId(), appointmentFive);
+
 
         bedMap = new HashMap<>();
 
@@ -95,22 +105,7 @@ public class HospitalManagementSystem {
 
     }
 
-    static public List<Medicine> getMedicine() {
-
-        medicineList = new ArrayList<>();
-
-        Random random = new Random();
-        int randomNumber;
-        for (int i = 0; i < 3; i++) {
-            randomNumber = random.nextInt(5);
-            if (medicineMap.containsKey(new Long(randomNumber)))
-                medicineList.add(medicineMap.get(new Long(randomNumber)));
-        }
-
-        return medicineList;
-    }
-
-    static public void populateVisitInformation() {
+    public static void populateVisitInformation() {
 
         visitingMap =new HashMap<>();
 
@@ -118,11 +113,13 @@ public class HospitalManagementSystem {
         Visiting visitingTwo = getVisiting(020L,appointmentMap.get(102L),"Take proper rest and relax","Vecuronium",true);
         Visiting visitingThree = getVisiting(030L,appointmentMap.get(103L),"Take sunlight at morning and evening","Avelumab",true);
         Visiting visitingFour = getVisiting(040L,appointmentMap.get(104L),"Do Medication","Nystan",true);
+        Visiting visitingFive = getVisiting(050L,appointmentMap.get(105L),"Keep mind stress free","Ornlo Medicine",true);
 
         visitingMap.put(visitingOne.getVisitId(), visitingOne);
         visitingMap.put(visitingTwo.getVisitId(), visitingTwo);
         visitingMap.put(visitingThree.getVisitId(), visitingThree);
         visitingMap.put(visitingFour.getVisitId(), visitingFour);
+        visitingMap.put(visitingFive.getVisitId(), visitingFour);
 
     }
 
@@ -133,7 +130,7 @@ public class HospitalManagementSystem {
         AppointmentBO appointmentBO = new AppointmentBO();
 
         try {
-            appointmentBO.createAppointment(101l, patientMap,0001l,doctorMap,"For Heart Problem","04/04/2021",appointmentMap);
+            appointmentBO.createAppointment(101L, patientMap,0001L,doctorMap,"For Heart Problem","04/04/2021",appointmentMap);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -141,7 +138,7 @@ public class HospitalManagementSystem {
 
         InPatientBO inPatientBO = new InPatientBO();
         try {
-            inPatientBO.allocateBed(102L,patientMap,102l,inPatientMap,01L,"01",bedMap);
+            inPatientBO.allocateBed(102L,patientMap,102L,inPatientMap,01L,"01",bedMap);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -153,7 +150,6 @@ public class HospitalManagementSystem {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
 
         ReportBO rtBO = new ReportBO();
         try {
@@ -188,6 +184,7 @@ public class HospitalManagementSystem {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+
     }
     /**
      * @param doctorId
