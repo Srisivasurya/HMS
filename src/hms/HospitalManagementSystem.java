@@ -185,6 +185,8 @@ public class HospitalManagementSystem {
             System.out.println(e.getMessage());
         }
 
+
+
     }
     /**
      * @param doctorId

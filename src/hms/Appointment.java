@@ -95,4 +95,6 @@ public class Appointment {
     }
 
 
+    public void setDateofVisit(String dateOfVisit) {
+    }
 }
