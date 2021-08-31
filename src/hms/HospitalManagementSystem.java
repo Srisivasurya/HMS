@@ -194,13 +194,13 @@ public class HospitalManagementSystem {
      * @param specialisation
      * @return
      */
-   private static Doctor getDoctor(Long doctorId,String doctorName,String specialisation){
-       Doctor doctor = new Doctor();
-       doctor.setDoctorName(doctorName);
-       doctor.setDoctorID(doctorId);
-       doctor.setSpecialisation(specialisation);
-       return doctor;
-   }
+    private static Doctor getDoctor(Long doctorId,String doctorName,String specialisation){
+        Doctor doctor = new Doctor();
+        doctor.setDoctorName(doctorName);
+        doctor.setDoctorID(doctorId);
+        doctor.setSpecialisation(specialisation);
+        return doctor;
+    }
 
     private static Hospital getHospital(Long hospitalId,String hospitalName,String hospitalLocation){
         Hospital hospital = new Hospital();
@@ -231,35 +231,35 @@ public class HospitalManagementSystem {
     private static Appointment getAppointment(String dateOfVisit, Patient patient, Doctor doctor, Long appointmentId,
                                               String purposeOfVisit, boolean firstVisit, Float patientBP, Float patientTemperature){
 
-       Appointment appointment = new Appointment();
-       appointment.setDateofVisit(DateUtility.getDate(dateOfVisit));
-       appointment.setPatient(patient);
-       appointment.setDoctor(doctor);
-       appointment.setAppointmentId(appointmentId);
-       appointment.setPurposeOfVisit(purposeOfVisit);
-       appointment.setFirstVisit(firstVisit);
-       appointment.setPatientBP(patientBP);
-       appointment.setTemperature(patientTemperature);
-       return appointment;
-   }
-   private static Visiting getVisiting(Long visitId,Appointment appointment,String doctorRecommendation,String medicine,Boolean followUpNeeded){
-       Visiting visiting = new Visiting();
-       visiting.setVisitId(visitId);
-       visiting.setAppointment(appointment);
-       visiting.setDoctorRecommendation(doctorRecommendation);
-       visiting.setMedicine(medicine);
-       visiting.setFollowUpNeeded(followUpNeeded);
-       return visiting;
-   }
+        Appointment appointment = new Appointment();
+        appointment.setDateofVisit(DateUtility.getDate(dateOfVisit));
+        appointment.setPatient(patient);
+        appointment.setDoctor(doctor);
+        appointment.setAppointmentId(appointmentId);
+        appointment.setPurposeOfVisit(purposeOfVisit);
+        appointment.setFirstVisit(firstVisit);
+        appointment.setPatientBP(patientBP);
+        appointment.setTemperature(patientTemperature);
+        return appointment;
+    }
+    private static Visiting getVisiting(Long visitId,Appointment appointment,String doctorRecommendation,String medicine,Boolean followUpNeeded){
+        Visiting visiting = new Visiting();
+        visiting.setVisitId(visitId);
+        visiting.setAppointment(appointment);
+        visiting.setDoctorRecommendation(doctorRecommendation);
+        visiting.setMedicine(medicine);
+        visiting.setFollowUpNeeded(followUpNeeded);
+        return visiting;
+    }
 
-   private static Medicine getMedicine(Long medicineId,String medicineName,String expiryDate,Long batchNumber,
-                                       String purchaseOfMedicine){
-       Medicine medicine = new Medicine();
-       medicine.setMedicineId(medicineId);
-       medicine.setMedicineName(medicineName);
-       medicine.setExpiryDate(expiryDate);
-       medicine.setBatchNumber(batchNumber);
-       medicine.setPurposeOfMedicine(purchaseOfMedicine);
-       return medicine;
-   }
+    private static Medicine getMedicine(Long medicineId,String medicineName,String expiryDate,Long batchNumber,
+                                        String purchaseOfMedicine){
+        Medicine medicine = new Medicine();
+        medicine.setMedicineId(medicineId);
+        medicine.setMedicineName(medicineName);
+        medicine.setExpiryDate(expiryDate);
+        medicine.setBatchNumber(batchNumber);
+        medicine.setPurposeOfMedicine(purchaseOfMedicine);
+        return medicine;
+    }
 }

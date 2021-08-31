@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class InPatientBO {
 
     public void allocateBed(Long patientId, Map<Long, Patient> patientMap,Long patientID, Map<Long, InPatient> inPatientMap,
-                             Long bedId,Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
+                            Long bedId,Map<Long, Bed> bedMap, String bedType, String roomName) throws Exception {
 
         InPatient inPatient = new InPatient();
 
