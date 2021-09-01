@@ -13,7 +13,7 @@ class InPatientBO {
             throw new Exception("InValid InPatient Id : ");
         }
         if (inPatientMap.isEmpty()) {
-            throw new Exception("InPatient HospitalManagementSystem is Empty : ");
+            throw new Exception("InPatient Detail is Empty : ");
         }
         if (bedMap.isEmpty()) {
             throw new Exception("BedDetails Is Empty : ");
