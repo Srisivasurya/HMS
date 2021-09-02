@@ -45,8 +45,10 @@ class InPatientBO {
         inPatientMap.put(inPatient.getIpIdentificationNumber(),inPatient);
     }
 
-    public void allocateBed(long l, Map<Long, Patient> patientMap, long l1, Map<Long, InPatient> inPatientMap, long l2, String s, Map<Long, Bed> bedMap) {
+
+    public void allocateBed(long l, Map<Long,Patient> patientMap , long l1, Map<Long, InPatient> inPatientMap,long l2,String s,Map<Long, Bed> bedMap){
     }
 }
+
 
 
