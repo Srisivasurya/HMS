@@ -54,7 +54,7 @@ class ReportBO {
             throw new Exception("Appointment Map is null");
         }
         if(doctorId == null){
-            throw new Exception("Doctor ID is null");
+            throw new Exception("DoctorID is null");
         }
 
         Iterator<Long> itr = appointmentMap.keySet().iterator();

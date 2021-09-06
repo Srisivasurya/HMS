@@ -7,10 +7,7 @@ import java.util.Scanner;
 
     public Process(int choice) {
 
-        switch (choice) {
-
-            case 1:
-
+        switch (choice){
 
         }
 
