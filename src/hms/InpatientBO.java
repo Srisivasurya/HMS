@@ -26,7 +26,7 @@ class InPatientBO {
             throw new Exception("Room Is Not Available : ");
         }
 
-        Patient patient = new Patient();
+        Patient patient;
         if (patientMap.containsKey(patientId)) {
             patient = patientMap.get(patientId);
         } else {

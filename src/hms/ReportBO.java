@@ -6,7 +6,7 @@ class ReportBO {
 
     public void getPatientDetails(Long patientId, String patientName, Map<Long, Patient> patientMap) throws Exception {
 
-        Patient patient = new Patient();
+        Patient patient;
 
         if (patientMap.isEmpty()) {
             throw new Exception("Patient Map is null");
@@ -20,7 +20,7 @@ class ReportBO {
         if (patientMap.containsKey(patientId)) {
             patient = patientMap.get(patientId);
         }
-        Patient patient1 = new Patient();
+        Patient patient1;
         Iterator<Long> itr = patientMap.keySet().iterator();
         while (itr.hasNext()) {
             patient1 = patientMap.get(itr.next());
@@ -64,6 +64,20 @@ class ReportBO {
                 System.out.println("List of Doctor:"+appointment.getDoctor());
             }
         }
+    }
+
+    public void asd(){
+
+        Map<Integer,String> list = new HashMap<>();
+         list.put(01,"s");
+         list.put(02,"a");
+
+         Iterator<Map.Entry<Integer,String>> ite = list.entrySet().iterator();
+         while(ite.hasNext()){
+             Map.Entry<Integer,String> a = ite.next();
+             System.out.print("Alpha:"+a.getKey());
+             System.out.println("Beta"+a.getValue());
+         }
     }
 
     public void displayInPatient(Map<Long,InPatient> inPatientMap) throws Exception{
