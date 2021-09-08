@@ -21,8 +21,10 @@ class ReportBO {
             patient = patientMap.get(patientId);
         }
         Patient patient1;
-        Iterator<Long> itr = patientMap.keySet().iterator();
+        Iterator<Map.Entry<Long,Patient>> itr = patientMap.entrySet().iterator();
         while (itr.hasNext()) {
+            Map.Entry<Long,Patient> patientEntry = itr.next();
+
             patient1 = patientMap.get(itr.next());
             if (patient1.getPatientName().equals(patientName)) {
                 System.out.println(" Patient detail for given patient name : " + patient1);
