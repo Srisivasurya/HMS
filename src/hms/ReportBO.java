@@ -25,7 +25,7 @@ class ReportBO {
         while (itr.hasNext()) {
             Map.Entry<Long,Patient> patientEntry = itr.next();
 
-            patient1 = patientMap.get(itr.next());
+             patient1 = patientMap.get(itr.next());
             if (patient1.getPatientName().equals(patientName)) {
                 System.out.println(" Patient detail for given patient name : " + patient1);
             }
@@ -36,12 +36,12 @@ class ReportBO {
 
     public void displayOutPatient(Map<Long, Patient> patientMap) throws Exception {
 
-        if (patientMap.isEmpty())
+        if(patientMap.isEmpty())
             throw new Exception("patient detail is null");
 
         Patient patient2 = new Patient();
         Iterator<Long> itr = patientMap.keySet().iterator();
-        while (itr.hasNext()) {
+        while(itr.hasNext()) {
             patient2 = patientMap.get(itr.next());
             if (patient2.getType().equals("OP")) {
                 System.out.println(" out-patient detail : " + patient2);

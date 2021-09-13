@@ -1,5 +1,6 @@
 package hms;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.ArrayList;
 class InPatientBO {
@@ -47,6 +48,27 @@ class InPatientBO {
 
 
     public void allocateBed(long l, Map<Long,Patient> patientMap , long l1, Map<Long, InPatient> inPatientMap,long l2,String s,Map<Long, Bed> bedMap){
+    }
+
+    public boolean checkPatientType(Map<Long,Visiting> visitingMap,Patient patient){
+
+        Iterator<Long> iter = visitingMap.keySet().iterator();
+        Visiting visiting = new Visiting();
+        int visitcount = 0;
+        while(iter.hasNext()){
+            visiting = visitingMap.get(iter.next());
+            if(visiting.getAppointment().getPatient().getPatientId() == patient.getPatientId()){
+                visitcount++;
+            }
+
+            System.out.println("Visit Count"+visitcount);
+
+            if(visitcount >= 3){
+                patient.setType("IP");
+                return true;
+            }
+        }
+        return false;
     }
 }
 

@@ -55,26 +55,6 @@ public class VisitInformation {
         return patient;
     }
 
-    public boolean checkPatientType(Map<Long,Visiting> visitingMap,Patient patient){
-
-        Iterator<Long> iter = visitingMap.keySet().iterator();
-        Visiting visiting = new Visiting();
-        int visitcount = 0;
-        while(iter.hasNext()){
-            visiting = visitingMap.get(iter.next());
-            if(visiting.getAppointment().getPatient().getPatientId() == patient.getPatientId()){
-                visitcount++;
-            }
-
-            System.out.println("Visit Count"+visitcount);
-
-            if(visitcount >= 3){
-                patient.setType("IP");
-                return true;
-            }
-        }
-        return false;
-    }
 
 }
 
