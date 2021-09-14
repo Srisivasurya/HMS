@@ -23,7 +23,7 @@ public class VisitInformation {
             throw new Exception("Medicine is null");
         }
 
-        if(appointmentMap.isEmpty()){
+        if (appointmentMap.isEmpty()){
             throw new Exception("Appointment is Empty");
         }
 

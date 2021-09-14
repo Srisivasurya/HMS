@@ -61,7 +61,7 @@ class ReportBO {
 
         Iterator<Long> itr = appointmentMap.keySet().iterator();
         while (itr.hasNext()){
-            Appointment appointment = (Appointment) appointmentMap.keySet().iterator();
+            Appointment appointment = appointmentMap.get(itr.next());
             if(appointment.getDoctor().getDoctorID()==doctorId){
                 System.out.println("List of Doctor:"+appointment.getDoctor());
             }
