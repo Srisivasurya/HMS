@@ -36,8 +36,12 @@ class ReportBO {
 
     public void displayOutPatient(Map<Long, Patient> patientMap) throws Exception {
 
-        if(patientMap.isEmpty())
+        if( patientMap.isEmpty())
             throw new Exception("patient detail is null");
+
+        if( patientMap == null )
+            throw new Exception("Patient ID is null");
+
 
         Patient patient2 = new Patient();
         Iterator<Long> itr = patientMap.keySet().iterator();
@@ -68,20 +72,6 @@ class ReportBO {
         }
     }
 
-    public void asd(){
-
-        Map<Integer,String> list = new HashMap<>();
-         list.put(01,"s");
-         list.put(02,"a");
-
-         Iterator<Map.Entry<Integer,String>> ite = list.entrySet().iterator();
-         while(ite.hasNext()){
-             Map.Entry<Integer,String> a = ite.next();
-             System.out.print("Alpha:"+a.getKey());
-             System.out.println("Beta"+a.getValue());
-         }
-    }
-
     public void displayInPatient(Map<Long,InPatient> inPatientMap) throws Exception{
         if(inPatientMap.isEmpty()){
             throw new Exception("InPatient Map is empty");
@@ -104,7 +94,7 @@ class ReportBO {
             throw new Exception("Patient id is null");
         }
 
-        Visiting visitinfo = new Visiting();
+        Visiting visitinfo;
 
         Iterator<Long> itr = visitingMap.keySet().iterator();
         while(itr.hasNext()){
@@ -125,7 +115,7 @@ class ReportBO {
         Iterator<Long> itr =visitingMap.keySet().iterator();
         while(itr.hasNext()){
 
-            Visiting followup = new Visiting();
+            Visiting followup;
             followup = visitingMap.get(itr.next());
             if(followup.getFollowUpNeeded() == true){
                 System.out.println("Folloup needed for patient"+followup);

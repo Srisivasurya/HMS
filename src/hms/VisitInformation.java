@@ -27,7 +27,7 @@ public class VisitInformation {
             throw new Exception("Appointment is Empty");
         }
 
-        if (followUpNeeded == null) {
+        if (followUpNeeded  == null) {
             throw new Exception("FollowUpNedded is empty");
         }
 

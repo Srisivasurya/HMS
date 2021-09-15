@@ -46,7 +46,7 @@ public class AppointmentBO {
             appointmentId = iter.next();
             appt = appointmentMap.get(appointmentId);
             if (appt.getPatient() != null && appt.getPatient().getPatientId() == patientId) {
-                appointment.setFirstVisit(false);
+                appointment.setFirstVisit(true);
                 break;
             }
         }
